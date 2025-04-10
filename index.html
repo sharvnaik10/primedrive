@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car for rent</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./assets/carlogoplease_rem.png">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Main Body Styles */
+        body {
+            font-family: "Montserrat", sans-serif;
+            font-optical-sizing: auto;
+            font-style:normal;  
+        }
+
+        /* Navigation Bar Styles */
+        #nav-bar-css {
+            font-weight: 600;
+        }
+        
+        /* Logo Styles */
+        #logo {
+            height: 8vh;
+            width: 7vh;
+        }
+        
+        /* Car Card Styles */
+        .avl-cars {
+            object-fit: cover;
+        }
+        
+        .card:hover {
+            transform: scale(1.02);
+            transition: 0.2s linear;
+            box-shadow: 0 10px 8px rgba(0,0,0,0.2);
+        }
+        
+        /* Button Effects */
+        .btn-override:hover, #hero-btn-override:hover {
+            transform: scale(1.02);
+            transition: 0.2s linear;
+        }
+        
+        /* Animation Effects */
+        @keyframes slideInFromLeft {
+            0% {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        .animated-ent {
+            animation: slideInFromLeft 1s ease-out both;
+        }
+        
+        /* Navigation Link Hover Effect */
+        .nav-link-now {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link-now::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: -100%;
+            background-color: #0d6efd;
+            transition: left 0.3s ease;
+        }
+
+        .nav-link:hover::before {
+            left: 0;
+        }
+        
+        /* Navigation Spacing */
+        #nav-spacing {
+            margin-left:20rem;
+            margin-right: 20rem;
+        }
+        
+        #nav-color-out {
+            background-color: #f8f9fa;
+        }
+
+        /* Responsive Adjustments */
+        @media only screen and (max-width: 1495px) {
+            #nav-spacing {
+                margin-left:17rem;
+                margin-right: 5rem;
+            }
+        }
+        
+        @media only screen and (max-width: 1325px) {
+            #nav-spacing {
+                margin-left:6rem;
+                margin-right: 8rem;
+            }
+        }
+        
+        @media only screen and (max-width: 768px) {
+            #nav-spacing {
+                margin-left:0;
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ==================== Navigation Bar ==================== -->
+<div id="nav-color-out">
+    <div id="nav-spacing">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary" id="nav-bar-css">
+            <div class="container-fluid">
+                <img src="./assets/carlogoplease_rem.png" alt="Prime Drive Logo" class="navbar-brand" id="logo">
+                <a class="navbar-brand" href="#">Prime Drive</a>
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse animated-nav" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link active nav-link-now" href="#">Home</a></li>
+                        <li class="nav-item"><a class="nav-link active nav-link-now" href="#">Cars</a></li>
+                        <li class="nav-item"><a class="nav-link active nav-link-now" href="#">Pricing</a></li>
+                        <li class="nav-item"><a class="nav-link active nav-link-now" href="#">Contact</a></li>
+                    </ul>
+                    
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search for Cars">
+                        <button class="btn btn-outline-primary" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+
+<!-- ==================== Hero Section ==================== -->
+<div class="hero-video-wrapper position-relative overflow-hidden">
+    <!-- Background Video -->
+    <video autoplay loop muted playsinline class="position-absolute w-100 h-100 object-fit-cover z-n1">
+        <source src="./assets/volkswagen_promo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Hero Content -->
+    <div class="container col-xxl-8 px-4 py-5 text-white animated-ent">
+        <div class="row align-items-center g-5 py-5">
+            <div class="col-lg-6">
+                <p class="lead fw-bold">Explore a wide range of rides.</p>
+                <h1 class="display-4 fw-bold lh-1 mb-3">Hassle-Free Car Rentals at Your Fingertips</h1>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                    <button type="button" id="hero-btn-override" class="btn btn-primary btn-lg px-4 me-md-2">Rent a Car</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== Cars Section ==================== -->
+<section class="container my-5 car-section">
+    <h2>Available Cars</h2>
+    
+    <div class="row">
+        <!-- Car 1 -->
+        <div class="col-md-4 mb-4 d-flex align-items-stretch">
+            <div class="card h-100">
+                <img src="./assets/maruti.webp" class="card-img-top avl-cars img-fluid" alt="Maruti Suzuki Swift">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Maruti Suzuki Swift</h5>
+                    <p class="card-text">Compact and efficient, perfect for city driving.</p>
+                    <a href="#" class="btn btn-primary btn-override mt-auto">Rent Now</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Car 2 -->
+        <div class="col-md-4 mb-4 d-flex align-items-stretch">
+            <div class="card h-100">
+                <img src="./assets/Hyundai20.png" class="card-img-top avl-cars img-fluid" alt="Hyundai i20">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Hyundai i20</h5>
+                    <p class="card-text">Stylish hatchback with modern features.</p>
+                    <a href="#" class="btn btn-primary btn-override mt-auto">Rent Now</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Car 3 -->
+        <div class="col-md-4 mb-4 d-flex align-items-stretch">
+            <div class="card h-100">
+                <img src="./assets/mahindra.png" class="card-img-top avl-cars img-fluid" alt="Mahindra XUV700">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Mahindra XUV700</h5>
+                    <p class="card-text">Spacious SUV, ideal for family trips.</p>
+                    <a href="#" class="btn btn-primary btn-override mt-auto">Rent Now</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Car 4 -->
+        <div class="col-md-4 mb-4 d-flex align-items-stretch">
+            <div class="card h-100">
+                <img src="./assets/toyota.png" class="card-img-top avl-cars img-fluid" alt="Toyota Innova Crysta">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Toyota Innova Crysta</h5>
+                    <p class="card-text">Comfortable and reliable MPV for long journeys.</p>
+                    <a href="#" class="btn btn-primary btn-override mt-auto">Rent Now</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Car 5 -->
+        <div class="col-md-4 mb-4 d-flex align-items-stretch">
+            <div class="card h-100">
+                <img src="./assets/tata.png" class="card-img-top avl-cars img-fluid" alt="Tata Tigor">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Tata Tigor</h5>
+                    <p class="card-text">Stylish sedan with great fuel efficiency.</p>
+                    <a href="#" class="btn btn-primary btn-override mt-auto">Rent Now</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Car 6 -->
+        <div class="col-md-4 mb-4 d-flex align-items-stretch">
+            <div class="card h-100">
+                <img src="./assets/honda2.png" class="card-img-top avl-cars img-fluid" alt="Honda City">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Honda City</h5>
+                    <p class="card-text">Premium sedan with excellent comfort.</p>
+                    <a href="#" class="btn btn-primary btn-override mt-auto">Rent Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== Call to Action Section ==================== -->
+<div class="container my-5">
+    <div class="p-5 text-center bg-body-tertiary rounded-3">
+        <img src="./assets/cars2.png" alt="Multiple Cars" class="img-fluid">
+        <h1 class="text-body-emphasis">"Drive Your Way: Rent the Perfect Car in Minutes!"</h1>
+        <p class="col-lg-8 mx-auto fs-5 text-muted">
+            Choose from a wide selection of reliable, affordable vehicles ready when you are. Cruising in style is simple, fast, and stress-free.
+        </p>
+        <div class="d-inline-flex gap-2 mb-5">
+            <button class="d-inline-flex align-items-center btn btn-primary btn-lg px-4 text-center" type="button">
+                Rent Now
+            </button>
+            <button class="btn btn-outline-secondary btn-lg px-4 text-center" type="button">
+                About
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== Footer Section ==================== -->
+<div class="container">
+    <footer class="row row-cols-5 py-5 my-5 border-top">
+        <div class="col">
+            <a href="./assets/carlogoplease_rem.png" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+                <img src="./assets/carlogoplease_rem.png" alt="Prime Drive Logo" class="bi me-2" width="90" height="90">
+            </a>
+            <p class="text-muted">© Prime Drive 2025</p>
+        </div>
+        
+        <div class="col"></div>
+        
+        <div class="col">
+            <h5>About Us</h5>
+            <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Legal Policies</a></li>
+            </ul>
+        </div>
+        
+        <div class="col">
+            <h5>Connect With Us</h5>
+            <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Instagram</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Twitter</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Snapchat</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Facebook</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+            </ul>
+        </div>
+        
+        <div class="col">
+            <h5>Contact Us</h5>
+            <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Request Assistance</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Whatsapp</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Email Us</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Support</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+            </ul>
+        </div>
+    </footer>
+</div>
+
+</body>
+</html>
